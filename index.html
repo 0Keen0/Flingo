@@ -133,7 +133,7 @@
 
         // Function to generate a random 10-character alphanumeric seed
         function generateRandomSeed() {
-            const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+            const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
             let randomSeed = '';
             for (let i = 0; i < 10; i++) {
                 randomSeed += chars.charAt(Math.floor(Math.random() * chars.length));
