@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bingo Card Generator</title>
+    <style>
+        /* Basic page styling */
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+        }
+
+        /* Style the Bingo card title */
+        h1 {
+            margin-top: 20px;
+        }
+
+        /* Style the input field and button */
+        input, button {
+            padding: 10px;
+            font-size: 16px;
+            margin: 10px;
+        }
+
+        /* Style the Bingo table */
+        table {
+            margin: 20px auto;
+            border-collapse: collapse;
+            width: 500px; /* Fixed width for the whole table */
+            height: 500px; /* Fixed height for the whole table */
+        }
+
+        /* Style the individual table cells */
+        td {
+            border: 2px solid black;
+            width: 20%; /* Ensure each cell is 20% of the table's width */
+            height: 20%; /* Ensure each cell is 20% of the table's height */
+            text-align: center;
+            vertical-align: middle;
+            font-size: 14px;
+            padding: 10px;
+            word-wrap: break-word; /* Allow long words to wrap */
+            cursor: pointer; /* Make the cells clickable */
+        }
+
+        /* Highlight the free space */
+        td.free {
+            background-color: lightgray;
+        }
+
+        /* Style for the toggled state (green background) */
+        td.toggled {
+            background-color: green;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Bingo Card Generator</h1>
+    <!-- Adding a simple input form for the seed and a generate button -->
+    <input type="text" id="seed" placeholder="Enter 10-digit alphanumeric seed">
+    <button onclick="generateBingo()">Generate Bingo Card</button>
+
+    <!-- Placeholder for the generated Bingo card -->
+    <div id="bingoCard"></div>
+
+    <script>
+        // Define a word bank to fill the bingo card with words
+        const wordBank = [
+            "Perspective", "Experiment", "Independent Variable", "Vacuum", "Theory",
+            "Scientific Method", "Refraction", "Horizon", "Neil Degrasse Tyson", "Dome",
+            "Creator", "Entropy", "Thermodynamics", "Globey", "Electrostatics", "CGI",
+            "Cartoons", "Container", "Icewall", "Donut", "Disingenuous", "Globe Religion",
+            "Firmament", "Buoyancy", "Density", "Parallax", "Crepuscular Rays", "Level",
+            "Coriolis Effect", "Local Sun", "Antarctic Treaty", "60th Parallel", "3 Constituent Parts",
+            "Flat Smack", "Elites", "NASA", "Liar", "Line Of Sight", "Weirdo", "Admiral Byrd",
+            "8\" Per Mile Squared", "Scientific Method", "You Don't Even Know Your Own Model",
+            "Radar", "Curvature", "Observation", "P1000", "Polaris", "Luminaries", "Wandering Star",
+            "Ether", "Thanks For Playing", "Welcome To Flat Earth", "Indoctrination", "Helium", "Fisheye lens"
+        ];
+
+        // Function to generate the Bingo card based on the input seed
+        function generateBingo() {
+            const seed = document.getElementById('seed').value;
+
+            // Check if seed is valid (e.g., 10 characters)
+            if (seed.length !== 10) {
+                alert("Please enter a 10-digit alphanumeric seed.");
+                return;
+            }
+
+            // Shuffle the word bank based on the seed
+            const shuffledWords = shuffleWords([...wordBank], seed);
+
+            // Build the Bingo card (5x5 grid)
+            let card = "<table>";
+            let wordIndex = 0;
+            for (let i = 0; i < 5; i++) {
+                card += "<tr>";
+                for (let j = 0; j < 5; j++) {
+                    if (i === 2 && j === 2) {
+                        card += "<td class='free' onclick='toggleCell(this)'>Free</td>"; // Center free space
+                    } else {
+                        card += `<td onclick='toggleCell(this)'>${shuffledWords[wordIndex]}</td>`;
+                        wordIndex++;
+                    }
+                }
+                card += "</tr>";
+            }
+            card += "</table>";
+
+            // Display the Bingo card in the placeholder div
+            document.getElementById('bingoCard').innerHTML = card;
+        }
+
+        // Function to shuffle the words based on the seed
+        function shuffleWords(words, seed) {
+            const rng = seedToRng(seed); // Generate random number generator based on seed
+            words.sort(() => rng() - 0.5); // Shuffle words using the RNG
+            return words.slice(0, 24); // Take only the first 24 words
+        }
+
+        // Function to create a simple pseudo-random number generator based on the seed
+        function seedToRng(seed) {
+            let x = 0;
+            for (let i = 0; i < seed.length; i++) {
+                x += seed.charCodeAt(i);
+            }
+            return function() {
+                x = (x * 9301 + 49297) % 233280;
+                return x / 233280;
+            };
+        }
+
+        // Function to toggle the cell's background color between green and default
+        function toggleCell(cell) {
+            cell.classList.toggle('toggled');
+        }
+    </script>
+</body>
+</html>
