@@ -67,217 +67,6 @@
         td.FLAT_SMACKED {
             background-color: lightgray;
         }
-
-        /* Dropdown style */
-        select {
-            padding: 10px;
-            font-size: 16px;
-            margin: 10px;
-            cursor: pointer;
-        }
-
-        /* Theme-specific styles */
-
-        /* Ice Wall Theme */
-        .theme-Ice {
-            background-color: #a8dadc;
-            color: #1d3557;
-        }
-
-        .theme-Ice th, .theme-Ice td {
-            border-color: #457b9d;
-        }
-
-        .theme-Ice td.FLAT_SMACKED {
-            background-color: #457b9d;
-            color: #fff;
-        }
-
-        .theme-Ice td.toggled {
-            background-color: #1d3557;
-            color: #fff;
-        }
-
-        /* Local Sun Theme */
-        .theme-Local-Sun {
-            background-color: #f4a261;
-            color: #264653;
-        }
-
-        .theme-Local-Sun th, .theme-Local-Sun td {
-            border-color: #e76f51;
-        }
-
-        .theme-Local-Sun td.FLAT_SMACKED {
-            background-color: #e76f51;
-            color: #fff;
-        }
-
-        .theme-Local-Sun td.toggled {
-            background-color: #264653;
-            color: #fff;
-        }
-
-        /* Cool Mint Theme */
-        .theme-mint {
-            background-color: #d8f3dc;
-            color: #081c15;
-        }
-
-        .theme-mint th, .theme-mint td {
-            border-color: #52b788;
-        }
-
-        .theme-mint td.FLAT_SMACKED {
-            background-color: #52b788;
-            color: #fff;
-        }
-
-        .theme-mint td.toggled {
-            background-color: #081c15;
-            color: #fff;
-        }
-
-        /* Lavender Bliss Theme */
-        .theme-lavender {
-            background-color: #f3e8ff;
-            color: #5a189a;
-        }
-
-        .theme-lavender th, .theme-lavender td {
-            border-color: #9d4edd;
-        }
-
-        .theme-lavender td.FLAT_SMACKED {
-            background-color: #9d4edd;
-            color: #fff;
-        }
-
-        .theme-lavender td.toggled {
-            background-color: #5a189a;
-            color: #fff;
-        }
-
-        /* Crisp Autumn Theme */
-        .theme-autumn {
-            background-color: #ffafcc;
-            color: #6d6875;
-        }
-
-        .theme-autumn th, .theme-autumn td {
-            border-color: #b5838d;
-        }
-
-        .theme-autumn td.FLAT_SMACKED {
-            background-color: #b5838d;
-            color: #fff;
-        }
-
-        .theme-autumn td.toggled {
-            background-color: #6d6875;
-            color: #fff;
-        }
-
-        /* Luminary Theme */
-        .theme-Luminary {
-            background-color: #2a2a72;
-            color: #f72585;
-        }
-
-        .theme-Luminary th, .theme-Luminary td {
-            border-color: #4cc9f0;
-        }
-
-        .theme-Luminary td.FLAT_SMACKED {
-            background-color: #4cc9f0;
-            color: #fff;
-        }
-
-        .theme-Luminary td.toggled {
-            background-color: #f72585;
-            color: #fff;
-        }
-
-        /* Vintage Earth Theme */
-        .theme-vintage {
-            background-color: #ede0d4;
-            color: #cb997e;
-        }
-
-        .theme-vintage th, .theme-vintage td {
-            border-color: #a5a58d;
-        }
-
-        .theme-vintage td.FLAT_SMACKED {
-            background-color: #a5a58d;
-            color: #fff;
-        }
-
-        .theme-vintage td.toggled {
-            background-color: #cb997e;
-            color: #fff;
-        }
-
-        /* Bold Citrus Theme */
-        .theme-citrus {
-            background-color: #ffbe0b;
-            color: #3a0ca3;
-        }
-
-        .theme-citrus th, .theme-citrus td {
-            border-color: #fb5607;
-        }
-
-        .theme-citrus td.FLAT_SMACKED {
-            background-color: #fb5607;
-            color: #fff;
-        }
-
-        .theme-citrus td.toggled {
-            background-color: #3a0ca3;
-            color: #fff;
-        }
-
-        /* Red Fire Theme */
-        .theme-red-fire {
-            background-color: #ff4e4e;
-            color: #370617;
-        }
-
-        .theme-red-fire th, .theme-red-fire td {
-            border-color: #d00000;
-        }
-
-        .theme-red-fire td.FLAT_SMACKED {
-            background-color: #d00000;
-            color: #fff;
-        }
-
-        .theme-red-fire td.toggled {
-            background-color: #370617;
-            color: #fff;
-        }
-
-        /* Steel Blue Theme */
-        .theme-steel-blue {
-            background-color: #808080; /* Grey background */
-            color: #0000ff; /* Blue text */
-        }
-
-        .theme-steel-blue th, .theme-steel-blue td {
-            border-color: #ffffff; /* White borders */
-        }
-
-        .theme-steel-blue td.FLAT_SMACKED {
-            background-color: #0000ff; /* Blue for FLAT SMACKED cell */
-            color: #fff;
-        }
-
-        .theme-steel-blue td.toggled {
-            background-color: #ff0000; /* Red for clicked cells */
-            color: #fff;
-        }
-
     </style>
 </head>
 <body>
@@ -288,21 +77,14 @@
     <input type="text" id="seed" placeholder="Enter 10-digit code">
     <button onclick="generateBingo()">Generate Flingo</button>
 
-    <!-- Theme dropdown menu -->
+    <!-- Theme color pickers -->
+    <h3>Create Custom Theme</h3>
     <div>
-        <select id="themeSelector" onchange="applyTheme(this.value)">
-            <option value="">Select Theme</option>
-            <option value="theme-Ice">Ice Wall</option>
-            <option value="theme-Local-Sun">Local Sun</option>
-            <option value="theme-mint">Cool Mint</option>
-            <option value="theme-lavender">Lavender Bliss</option>
-            <option value="theme-autumn">Crisp Autumn</option>
-            <option value="theme-Luminary">Luminary</option>
-            <option value="theme-vintage">Vintage Earth</option>
-            <option value="theme-citrus">Bold Citrus</option>
-            <option value="theme-red-fire">Red Fire</option>
-            <option value="theme-steel-blue">Steel Blue</option>
-        </select>
+        <label>Background Color: <input type="color" id="bgColor" value="#f4f4f4"></label><br>
+        <label>Text Color: <input type="color" id="textColor" value="#000000"></label><br>
+        <label>Border Color: <input type="color" id="borderColor" value="#000000"></label><br>
+        <label>Toggled Cell Color: <input type="color" id="toggledColor" value="#ff0000"></label><br>
+        <button onclick="applyCustomTheme()">Apply Custom Theme</button>
     </div>
 
     <!-- Placeholder for the generated Bingo card -->
@@ -360,10 +142,6 @@
 
             // Display the Bingo card in the placeholder div
             document.getElementById('bingoCard').innerHTML = card;
-
-            // Apply the current theme after generating the table
-            const selectedTheme = document.getElementById('themeSelector').value;
-            applyTheme(selectedTheme);
         }
 
         // Function to generate a random 10-character alphanumeric seed
@@ -393,26 +171,44 @@
             });
         }
 
-        // Function to apply the selected theme
-        function applyTheme(theme) {
-            const themes = [
-                'theme-Ice', 'theme-Local-Sun', 'theme-mint', 'theme-lavender', 'theme-autumn', 
-                'theme-Luminary', 'theme-vintage', 'theme-citrus', 'theme-red-fire', 'theme-steel-blue'
-            ];
+        // Function to apply custom theme based on user input
+        function applyCustomTheme() {
+            const bgColor = document.getElementById('bgColor').value;
+            const textColor = document.getElementById('textColor').value;
+            const borderColor = document.getElementById('borderColor').value;
+            const toggledColor = document.getElementById('toggledColor').value;
 
-            // Remove active theme classes from body and table
-            document.body.classList.remove(...themes);
-            const tableElement = document.querySelector('table');
-            if (tableElement) {
-                tableElement.classList.remove(...themes);
-            }
+            // Apply the background color to the body
+            document.body.style.backgroundColor = bgColor;
 
-            // Apply the selected theme to body and table
-            if (theme) {
-                document.body.classList.add(theme);
-                if (tableElement) {
-                    tableElement.classList.add(theme);
-                }
+            // Apply text and border colors to the table
+            const table = document.querySelector('table');
+            if (table) {
+                table.style.color = textColor;
+                const cells = table.querySelectorAll('td, th');
+                cells.forEach(cell => {
+                    cell.style.borderColor = borderColor;
+                    cell.style.color = textColor;
+                });
+
+                // Set the toggled cells' color
+                const toggledCells = table.querySelectorAll('td.toggled');
+                toggledCells.forEach(cell => {
+                    cell.style.backgroundColor = toggledColor;
+                });
+
+                // Update toggleCell function to use the new toggledColor
+                document.querySelectorAll('td').forEach(td => {
+                    td.addEventListener('click', function() {
+                        if (td.classList.contains('toggled')) {
+                            td.style.backgroundColor = '';
+                            td.classList.remove('toggled');
+                        } else {
+                            td.style.backgroundColor = toggledColor;
+                            td.classList.add('toggled');
+                        }
+                    });
+                });
             }
         }
     </script>
