@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bingo Card Generator</title>
+    <title>Flingo Card Generator</title>
     <style>
         /* Basic page styling */
         body {
@@ -58,8 +58,8 @@
             transition: background-color 0.1s ease-in-out; /* Smoother background color transition */
         }
 
-        /* Highlight the free space */
-        td.free {
+        /* Highlight the FLAT SMACKED space */
+        td.FLAT SMACKED {
             background-color: lightgray;
         }
 
@@ -89,7 +89,7 @@
             "Cartoons", "Container", "Icewall", "Donut", "Disingenuous", "Globe Religion",
             "Firmament", "Buoyancy", "Density", "Parallax", "Crepuscular Rays", "Level",
             "Coriolis Effect", "Local Sun", "Antarctic Treaty", "60th Parallel", "3 Constituent Parts",
-            "Flat Smack", "Elites", "NASA", "Liar", "Line Of Sight", "Weirdo", "Admiral Byrd",
+            "Elites", "NASA", "Liar", "Line Of Sight", "Weirdo", "Admiral Byrd",
             "8\" Per Mile Squared", "Scientific Method", "You Don't Even Know Your Own Model",
             "Radar", "Curvature", "Observation", "P1000", "Polaris", "Luminaries", "Wandering Star",
             "Ether", "Thanks For Playing", "Welcome To Flat Earth", "Indoctrination", "Helium", "Fisheye lens"
@@ -117,7 +117,7 @@
                 card += "<tr>";
                 for (let j = 0; j < 5; j++) {
                     if (i === 2 && j === 2) {
-                        card += "<td class='free' onclick='toggleCell(this)'>Free</td>"; // Center free space
+                        card += "<td class='FLAT SMACKED' onclick='toggleCell(this)'>FLAT SMACKED</td>"; // Center FLAT SMACKED space
                     } else {
                         card += `<td onclick='toggleCell(this)'>${shuffledWords[wordIndex]}</td>`;
                         wordIndex++;
