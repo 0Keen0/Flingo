@@ -238,7 +238,7 @@
             color: #fff;
         }
 
-        /* Freds furious red Theme */
+        /* Red Fire Theme */
         .theme-red-fire {
             background-color: #ff4e4e;
             color: #370617;
@@ -257,26 +257,27 @@
             background-color: #370617;
             color: #fff;
         }
-        
-        /* Top Gun */
+
+        /* Steel Blue Theme */
         .theme-steel-blue {
             background-color: #808080; /* Grey background */
             color: #0000ff; /* Blue text */
-    }
+        }
 
         .theme-steel-blue th, .theme-steel-blue td {
             border-color: #ffffff; /* White borders */
-    }
+        }
 
         .theme-steel-blue td.FLAT_SMACKED {
             background-color: #0000ff; /* Blue for FLAT SMACKED cell */
             color: #fff;
-    }
+        }
 
         .theme-steel-blue td.toggled {
             background-color: #ff0000; /* Red for clicked cells */
             color: #fff;
-    }
+        }
+
     </style>
 </head>
 <body>
@@ -299,8 +300,8 @@
             <option value="theme-Luminary">Luminary</option>
             <option value="theme-vintage">Vintage Earth</option>
             <option value="theme-citrus">Bold Citrus</option>
-            <option value="theme-red-fire">Freds furious red</option>
-            <option value="theme-steel-blue">Top Gun</option>
+            <option value="theme-red-fire">Red Fire</option>
+            <option value="theme-steel-blue">Steel Blue</option>
         </select>
     </div>
 
@@ -394,16 +395,24 @@
 
         // Function to apply the selected theme
         function applyTheme(theme) {
-            const themes = ['theme-Ice', 'theme-Local-Sun', 'theme-mint', 'theme-lavender', 'theme-autumn', 'theme-Luminary', 'theme-vintage', 'theme-citrus', 'theme-red-fire'];
+            const themes = [
+                'theme-Ice', 'theme-Local-Sun', 'theme-mint', 'theme-lavender', 'theme-autumn', 
+                'theme-Luminary', 'theme-vintage', 'theme-citrus', 'theme-red-fire', 'theme-steel-blue'
+            ];
 
-            // Remove active theme classes
+            // Remove active theme classes from body and table
             document.body.classList.remove(...themes);
-            document.querySelector('table')?.classList.remove(...themes);
+            const tableElement = document.querySelector('table');
+            if (tableElement) {
+                tableElement.classList.remove(...themes);
+            }
 
-            // Apply the selected theme
+            // Apply the selected theme to body and table
             if (theme) {
                 document.body.classList.add(theme);
-                document.querySelector('table')?.classList.add(theme);
+                if (tableElement) {
+                    tableElement.classList.add(theme);
+                }
             }
         }
     </script>
