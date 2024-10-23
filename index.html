@@ -118,22 +118,22 @@
             color: #fff;
         }
 
-        /* Greenville School District Theme */
-        .theme-greenville {
+        /* Cool Mint Theme */
+        .theme-mint {
             background-color: #d8f3dc;
             color: #081c15;
         }
 
-        .theme-greenville th, .theme-greenville td {
+        .theme-mint th, .theme-mint td {
             border-color: #52b788;
         }
 
-        .theme-greenville td.FLAT_SMACKED {
+        .theme-mint td.FLAT_SMACKED {
             background-color: #52b788;
             color: #fff;
         }
 
-        .theme-greenville td.toggled {
+        .theme-mint td.toggled {
             background-color: #081c15;
             color: #fff;
         }
@@ -237,6 +237,27 @@
             background-color: #3a0ca3;
             color: #fff;
         }
+
+        /* Red Fire Theme */
+        .theme-red-fire {
+            background-color: #ff4e4e;
+            color: #370617;
+        }
+
+        .theme-red-fire th, .theme-red-fire td {
+            border-color: #d00000;
+        }
+
+        .theme-red-fire td.FLAT_SMACKED {
+            background-color: #d00000;
+            color: #fff;
+        }
+
+        .theme-red-fire td.toggled {
+            background-color: #370617;
+            color: #fff;
+        }
+
     </style>
 </head>
 <body>
@@ -253,12 +274,13 @@
             <option value="">Select Theme</option>
             <option value="theme-Ice">Ice Wall</option>
             <option value="theme-Local-Sun">Local Sun</option>
-            <option value="theme-greenville">Greenville School District</option>
+            <option value="theme-mint">Cool Mint</option>
             <option value="theme-lavender">Lavender Bliss</option>
             <option value="theme-autumn">Crisp Autumn</option>
             <option value="theme-Luminary">Luminary</option>
             <option value="theme-vintage">Vintage Earth</option>
             <option value="theme-citrus">Bold Citrus</option>
+            <option value="theme-red-fire">Red Fire</option>
         </select>
     </div>
 
@@ -352,7 +374,7 @@
 
         // Function to apply the selected theme
         function applyTheme(theme) {
-            const themes = ['theme-Ice', 'theme-Local-Sun', 'theme-greenville', 'theme-lavender', 'theme-autumn', 'theme-Luminary', 'theme-vintage', 'theme-citrus'];
+            const themes = ['theme-Ice', 'theme-Local-Sun', 'theme-mint', 'theme-lavender', 'theme-autumn', 'theme-Luminary', 'theme-vintage', 'theme-citrus', 'theme-red-fire'];
 
             // Remove active theme classes
             document.body.classList.remove(...themes);
