@@ -30,20 +30,32 @@
             border-collapse: collapse;
             table-layout: fixed; /* Ensures all columns and cells are of equal width */
             width: 500px; /* Fixed width for the whole table */
-            height: 500px; /* Fixed height for the whole table */
+            height: 550px; /* Adjusted total height to account for the header */
+        }
+
+        /* Style the table headers */
+        th {
+            border: 2px solid black;
+            width: 20%;
+            height: 50px; /* Fixed height for the header row */
+            text-align: center;
+            vertical-align: middle;
+            background-color: lightblue;
+            font-size: 20px;
+            font-weight: bold;
         }
 
         /* Style the individual table cells */
         td {
             border: 2px solid black;
             width: 20%; /* Each cell takes up 20% of the table's width */
-            height: 20%; /* Each cell takes up 20% of the table's height */
+            height: calc(100% / 6); /* Divide the remaining height evenly across the cells */
             text-align: center;
             vertical-align: middle;
             font-size: 14px;
-            word-wrap: break-word; /* Ensure long words wrap inside the cell */
             overflow: hidden; /* Hide overflow if the content is too long */
             cursor: pointer; /* Make the cells clickable */
+            transition: background-color 0.1s ease-in-out; /* Smoother background color transition */
         }
 
         /* Highlight the free space */
@@ -61,7 +73,7 @@
 <body>
     <h1>Bingo Card Generator</h1>
     <!-- Adding a simple input form for the seed and a generate button -->
-    <input type="text" id="seed" placeholder="Enter 10-digit code">
+    <input type="text" id="seed" placeholder="Enter 10-digit alphanumeric seed">
     <button onclick="generateBingo()">Generate Bingo Card</button>
 
     <!-- Placeholder for the generated Bingo card -->
@@ -97,6 +109,8 @@
 
             // Build the Bingo card (5x5 grid)
             let card = "<table>";
+            card += "<tr><th>E</th><th>A</th><th>R</th><th>T</th><th>H</th></tr>"; // Header row with "EARTH"
+            
             let wordIndex = 0;
             for (let i = 0; i < 5; i++) {
                 card += "<tr>";
@@ -147,7 +161,9 @@
 
         // Function to toggle the cell's background color between green and default
         function toggleCell(cell) {
-            cell.classList.toggle('toggled');
+            requestAnimationFrame(() => {
+                cell.classList.toggle('toggled');
+            });
         }
     </script>
 </body>
