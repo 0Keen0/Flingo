@@ -99,21 +99,21 @@
         }
 
         /* Local Sun Theme */
-        .theme-Local Sun {
+        .theme-Local-Sun {
             background-color: #f4a261;
             color: #264653;
         }
 
-        .theme-Local Sun th, .theme-Local Sun td {
+        .theme-Local-Sun th, .theme-Local-Sun td {
             border-color: #e76f51;
         }
 
-        .theme-Local Sun td.FLAT_SMACKED {
+        .theme-Local-Sun td.FLAT_SMACKED {
             background-color: #e76f51;
             color: #fff;
         }
 
-        .theme-Local Sun td.toggled {
+        .theme-Local-Sun td.toggled {
             background-color: #264653;
             color: #fff;
         }
@@ -252,7 +252,7 @@
         <select id="themeSelector" onchange="applyTheme(this.value)">
             <option value="">Select Theme</option>
             <option value="theme-Ice">Ice Wall</option>
-            <option value="theme-Local Sun">Local Sun</option>
+            <option value="theme-Local-Sun">Local Sun</option>
             <option value="theme-mint">Cool Mint</option>
             <option value="theme-lavender">Lavender Bliss</option>
             <option value="theme-autumn">Crisp Autumn</option>
@@ -317,6 +317,10 @@
 
             // Display the Bingo card in the placeholder div
             document.getElementById('bingoCard').innerHTML = card;
+
+            // Apply the current theme after generating the table
+            const selectedTheme = document.getElementById('themeSelector').value;
+            applyTheme(selectedTheme);
         }
 
         // Function to generate a random 10-character alphanumeric seed
@@ -348,7 +352,7 @@
 
         // Function to apply the selected theme
         function applyTheme(theme) {
-            const themes = ['theme-Ice', 'theme-Local Sun', 'theme-mint', 'theme-lavender', 'theme-autumn', 'theme-Luminary', 'theme-vintage', 'theme-citrus'];
+            const themes = ['theme-Ice', 'theme-Local-Sun', 'theme-mint', 'theme-lavender', 'theme-autumn', 'theme-Luminary', 'theme-vintage', 'theme-citrus'];
 
             // Remove active theme classes
             document.body.classList.remove(...themes);
