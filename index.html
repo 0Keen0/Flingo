@@ -78,22 +78,22 @@
 
         /* Theme-specific styles */
 
-        /* Ocean Breeze Theme */
-        .theme-ocean {
+        /* Ice Wall Theme */
+        .theme-Ice {
             background-color: #a8dadc;
             color: #1d3557;
         }
 
-        .theme-ocean th, .theme-ocean td {
+        .theme-Ice th, .theme-Ice td {
             border-color: #457b9d;
         }
 
-        .theme-ocean td.FLAT_SMACKED {
+        .theme-Ice td.FLAT_SMACKED {
             background-color: #457b9d;
             color: #fff;
         }
 
-        .theme-ocean td.toggled {
+        .theme-Ice td.toggled {
             background-color: #1d3557;
             color: #fff;
         }
@@ -251,7 +251,7 @@
     <div>
         <select id="themeSelector" onchange="applyTheme(this.value)">
             <option value="">Select Theme</option>
-            <option value="theme-ocean">Ocean Breeze</option>
+            <option value="theme-Ice">Ice Wall</option>
             <option value="theme-sunset">Sunset Glow</option>
             <option value="theme-mint">Cool Mint</option>
             <option value="theme-lavender">Lavender Bliss</option>
@@ -348,7 +348,7 @@
 
         // Function to apply the selected theme
         function applyTheme(theme) {
-            const themes = ['theme-ocean', 'theme-sunset', 'theme-mint', 'theme-lavender', 'theme-autumn', 'theme-night', 'theme-vintage', 'theme-citrus'];
+            const themes = ['theme-Ice', 'theme-sunset', 'theme-mint', 'theme-lavender', 'theme-autumn', 'theme-night', 'theme-vintage', 'theme-citrus'];
 
             // Remove active theme classes
             document.body.classList.remove(...themes);
