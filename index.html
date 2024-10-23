@@ -125,22 +125,33 @@
             return randomSeed;
         }
 
-        // Function to shuffle the words based on the seed
+        // Function to shuffle the words based on the seed using xorshift algorithm
         function shuffleWords(words, seed) {
-            const rng = seedToRng(seed); // Generate random number generator based on seed
-            words.sort(() => rng() - 0.5); // Shuffle words using the RNG
+            const rng = xorshift(seedToInt(seed)); // Generate xorshift RNG based on seed
+            for (let i = words.length - 1; i > 0; i--) {
+                const j = Math.floor(rng() * (i + 1));
+                [words[i], words[j]] = [words[j], words[i]];
+            }
             return words.slice(0, 24); // Take only the first 24 words
         }
 
-        // Function to create a simple pseudo-random number generator based on the seed
-        function seedToRng(seed) {
-            let x = 0;
+        // Convert seed to a number (integer)
+        function seedToInt(seed) {
+            let num = 0;
             for (let i = 0; i < seed.length; i++) {
-                x += seed.charCodeAt(i);
+                num += seed.charCodeAt(i) * (i + 1);
             }
+            return num;
+        }
+
+        // xorshift PRNG algorithm for consistent randomness across devices
+        function xorshift(seed) {
+            let x = seed % 4294967296;
             return function() {
-                x = (x * 9301 + 49297) % 233280;
-                return x / 233280;
+                x ^= x << 13;
+                x ^= x >> 17;
+                x ^= x << 5;
+                return (x >>> 0) / 4294967296;
             };
         }
 
