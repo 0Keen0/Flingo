@@ -67,6 +67,176 @@
         td.FLAT_SMACKED {
             background-color: lightgray;
         }
+
+        /* Dropdown style */
+        select {
+            padding: 10px;
+            font-size: 16px;
+            margin: 10px;
+            cursor: pointer;
+        }
+
+        /* Theme-specific styles */
+
+        /* Ocean Breeze Theme */
+        .theme-ocean {
+            background-color: #a8dadc;
+            color: #1d3557;
+        }
+
+        .theme-ocean th, .theme-ocean td {
+            border-color: #457b9d;
+        }
+
+        .theme-ocean td.FLAT_SMACKED {
+            background-color: #457b9d;
+            color: #fff;
+        }
+
+        .theme-ocean td.toggled {
+            background-color: #1d3557;
+            color: #fff;
+        }
+
+        /* Sunset Glow Theme */
+        .theme-sunset {
+            background-color: #f4a261;
+            color: #264653;
+        }
+
+        .theme-sunset th, .theme-sunset td {
+            border-color: #e76f51;
+        }
+
+        .theme-sunset td.FLAT_SMACKED {
+            background-color: #e76f51;
+            color: #fff;
+        }
+
+        .theme-sunset td.toggled {
+            background-color: #264653;
+            color: #fff;
+        }
+
+        /* Cool Mint Theme */
+        .theme-mint {
+            background-color: #d8f3dc;
+            color: #081c15;
+        }
+
+        .theme-mint th, .theme-mint td {
+            border-color: #52b788;
+        }
+
+        .theme-mint td.FLAT_SMACKED {
+            background-color: #52b788;
+            color: #fff;
+        }
+
+        .theme-mint td.toggled {
+            background-color: #081c15;
+            color: #fff;
+        }
+
+        /* Lavender Bliss Theme */
+        .theme-lavender {
+            background-color: #f3e8ff;
+            color: #5a189a;
+        }
+
+        .theme-lavender th, .theme-lavender td {
+            border-color: #9d4edd;
+        }
+
+        .theme-lavender td.FLAT_SMACKED {
+            background-color: #9d4edd;
+            color: #fff;
+        }
+
+        .theme-lavender td.toggled {
+            background-color: #5a189a;
+            color: #fff;
+        }
+
+        /* Crisp Autumn Theme */
+        .theme-autumn {
+            background-color: #ffafcc;
+            color: #6d6875;
+        }
+
+        .theme-autumn th, .theme-autumn td {
+            border-color: #b5838d;
+        }
+
+        .theme-autumn td.FLAT_SMACKED {
+            background-color: #b5838d;
+            color: #fff;
+        }
+
+        .theme-autumn td.toggled {
+            background-color: #6d6875;
+            color: #fff;
+        }
+
+        /* Electric Night Theme */
+        .theme-night {
+            background-color: #2a2a72;
+            color: #f72585;
+        }
+
+        .theme-night th, .theme-night td {
+            border-color: #4cc9f0;
+        }
+
+        .theme-night td.FLAT_SMACKED {
+            background-color: #4cc9f0;
+            color: #fff;
+        }
+
+        .theme-night td.toggled {
+            background-color: #f72585;
+            color: #fff;
+        }
+
+        /* Vintage Earth Theme */
+        .theme-vintage {
+            background-color: #ede0d4;
+            color: #cb997e;
+        }
+
+        .theme-vintage th, .theme-vintage td {
+            border-color: #a5a58d;
+        }
+
+        .theme-vintage td.FLAT_SMACKED {
+            background-color: #a5a58d;
+            color: #fff;
+        }
+
+        .theme-vintage td.toggled {
+            background-color: #cb997e;
+            color: #fff;
+        }
+
+        /* Bold Citrus Theme */
+        .theme-citrus {
+            background-color: #ffbe0b;
+            color: #3a0ca3;
+        }
+
+        .theme-citrus th, .theme-citrus td {
+            border-color: #fb5607;
+        }
+
+        .theme-citrus td.FLAT_SMACKED {
+            background-color: #fb5607;
+            color: #fff;
+        }
+
+        .theme-citrus td.toggled {
+            background-color: #3a0ca3;
+            color: #fff;
+        }
     </style>
 </head>
 <body>
@@ -77,14 +247,19 @@
     <input type="text" id="seed" placeholder="Enter 10-digit code">
     <button onclick="generateBingo()">Generate Flingo</button>
 
-    <!-- Theme color pickers -->
-    <h3>Create Custom Theme</h3>
+    <!-- Theme dropdown menu -->
     <div>
-        <label>Background Color: <input type="color" id="bgColor" value="#f4f4f4"></label><br>
-        <label>Text Color: <input type="color" id="textColor" value="#000000"></label><br>
-        <label>Border Color: <input type="color" id="borderColor" value="#000000"></label><br>
-        <label>Toggled Cell Color: <input type="color" id="toggledColor" value="#ff0000"></label><br>
-        <button onclick="applyCustomTheme()">Apply Custom Theme</button>
+        <select id="themeSelector" onchange="applyTheme(this.value)">
+            <option value="">Select Theme</option>
+            <option value="theme-ocean">Ocean Breeze</option>
+            <option value="theme-sunset">Sunset Glow</option>
+            <option value="theme-mint">Cool Mint</option>
+            <option value="theme-lavender">Lavender Bliss</option>
+            <option value="theme-autumn">Crisp Autumn</option>
+            <option value="theme-night">Electric Night</option>
+            <option value="theme-vintage">Vintage Earth</option>
+            <option value="theme-citrus">Bold Citrus</option>
+        </select>
     </div>
 
     <!-- Placeholder for the generated Bingo card -->
@@ -171,44 +346,18 @@
             });
         }
 
-        // Function to apply custom theme based on user input
-        function applyCustomTheme() {
-            const bgColor = document.getElementById('bgColor').value;
-            const textColor = document.getElementById('textColor').value;
-            const borderColor = document.getElementById('borderColor').value;
-            const toggledColor = document.getElementById('toggledColor').value;
+        // Function to apply the selected theme
+        function applyTheme(theme) {
+            const themes = ['theme-ocean', 'theme-sunset', 'theme-mint', 'theme-lavender', 'theme-autumn', 'theme-night', 'theme-vintage', 'theme-citrus'];
 
-            // Apply the background color to the body
-            document.body.style.backgroundColor = bgColor;
+            // Remove active theme classes
+            document.body.classList.remove(...themes);
+            document.querySelector('table')?.classList.remove(...themes);
 
-            // Apply text and border colors to the table
-            const table = document.querySelector('table');
-            if (table) {
-                table.style.color = textColor;
-                const cells = table.querySelectorAll('td, th');
-                cells.forEach(cell => {
-                    cell.style.borderColor = borderColor;
-                    cell.style.color = textColor;
-                });
-
-                // Set the toggled cells' color
-                const toggledCells = table.querySelectorAll('td.toggled');
-                toggledCells.forEach(cell => {
-                    cell.style.backgroundColor = toggledColor;
-                });
-
-                // Update toggleCell function to use the new toggledColor
-                document.querySelectorAll('td').forEach(td => {
-                    td.addEventListener('click', function() {
-                        if (td.classList.contains('toggled')) {
-                            td.style.backgroundColor = '';
-                            td.classList.remove('toggled');
-                        } else {
-                            td.style.backgroundColor = toggledColor;
-                            td.classList.add('toggled');
-                        }
-                    });
-                });
+            // Apply the selected theme
+            if (theme) {
+                document.body.classList.add(theme);
+                document.querySelector('table')?.classList.add(theme);
             }
         }
     </script>
