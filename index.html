@@ -83,12 +83,12 @@
 
         // Function to generate the Bingo card based on the input seed
         function generateBingo() {
-            const seed = document.getElementById('seed').value;
+            let seed = document.getElementById('seed').value;
 
-            // Check if seed is valid (e.g., 10 characters)
-            if (seed.length !== 10) {
-                alert("Please enter a 10-digit alphanumeric seed.");
-                return;
+            // If no seed is provided, generate a random 10-digit alphanumeric seed
+            if (seed.length === 0) {
+                seed = generateRandomSeed();
+                document.getElementById('seed').value = seed; // Display the generated seed in the input field
             }
 
             // Shuffle the word bank based on the seed
@@ -113,6 +113,16 @@
 
             // Display the Bingo card in the placeholder div
             document.getElementById('bingoCard').innerHTML = card;
+        }
+
+        // Function to generate a random 10-character alphanumeric seed
+        function generateRandomSeed() {
+            const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+            let randomSeed = '';
+            for (let i = 0; i < 10; i++) {
+                randomSeed += chars.charAt(Math.floor(Math.random() * chars.length));
+            }
+            return randomSeed;
         }
 
         // Function to shuffle the words based on the seed
